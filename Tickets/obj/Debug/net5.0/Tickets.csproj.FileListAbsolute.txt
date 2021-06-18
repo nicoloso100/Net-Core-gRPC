@@ -29,3 +29,4 @@ C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\Tickets\obj\Debug\
 C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\Tickets\obj\Debug\net5.0\ref\Tickets.dll
 C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\Tickets\obj\Debug\net5.0\Tickets.pdb
 C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\Tickets\obj\Debug\net5.0\Tickets.genruntimeconfig.cache
+C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\Tickets\bin\Debug\net5.0\Grpc.AspNetCore.Web.dll
