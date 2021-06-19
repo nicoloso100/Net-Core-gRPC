@@ -42,15 +42,47 @@ namespace Tickets {
       return parser.ParseFrom(context.PayloadAsNewBuffer());
     }
 
+    static readonly grpc::Marshaller<global::Tickets.TicketRequestId> __Marshaller_tickets_TicketRequestId = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Tickets.TicketRequestId.Parser));
+    static readonly grpc::Marshaller<global::Tickets.TicketReply> __Marshaller_tickets_TicketReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Tickets.TicketReply.Parser));
+    static readonly grpc::Marshaller<global::Tickets.AllTicketsRequest> __Marshaller_tickets_AllTicketsRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Tickets.AllTicketsRequest.Parser));
+    static readonly grpc::Marshaller<global::Tickets.TicketsReply> __Marshaller_tickets_TicketsReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Tickets.TicketsReply.Parser));
     static readonly grpc::Marshaller<global::Tickets.AddTicketRequest> __Marshaller_tickets_AddTicketRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Tickets.AddTicketRequest.Parser));
-    static readonly grpc::Marshaller<global::Tickets.AddTicketReply> __Marshaller_tickets_AddTicketReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Tickets.AddTicketReply.Parser));
+    static readonly grpc::Marshaller<global::Tickets.EditTicketRequest> __Marshaller_tickets_EditTicketRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Tickets.EditTicketRequest.Parser));
 
-    static readonly grpc::Method<global::Tickets.AddTicketRequest, global::Tickets.AddTicketReply> __Method_AddTicket = new grpc::Method<global::Tickets.AddTicketRequest, global::Tickets.AddTicketReply>(
+    static readonly grpc::Method<global::Tickets.TicketRequestId, global::Tickets.TicketReply> __Method_GetTicket = new grpc::Method<global::Tickets.TicketRequestId, global::Tickets.TicketReply>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetTicket",
+        __Marshaller_tickets_TicketRequestId,
+        __Marshaller_tickets_TicketReply);
+
+    static readonly grpc::Method<global::Tickets.AllTicketsRequest, global::Tickets.TicketsReply> __Method_GetAllTickets = new grpc::Method<global::Tickets.AllTicketsRequest, global::Tickets.TicketsReply>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetAllTickets",
+        __Marshaller_tickets_AllTicketsRequest,
+        __Marshaller_tickets_TicketsReply);
+
+    static readonly grpc::Method<global::Tickets.AddTicketRequest, global::Tickets.TicketReply> __Method_AddTicket = new grpc::Method<global::Tickets.AddTicketRequest, global::Tickets.TicketReply>(
         grpc::MethodType.Unary,
         __ServiceName,
         "AddTicket",
         __Marshaller_tickets_AddTicketRequest,
-        __Marshaller_tickets_AddTicketReply);
+        __Marshaller_tickets_TicketReply);
+
+    static readonly grpc::Method<global::Tickets.TicketRequestId, global::Tickets.TicketRequestId> __Method_DeleteTicket = new grpc::Method<global::Tickets.TicketRequestId, global::Tickets.TicketRequestId>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "DeleteTicket",
+        __Marshaller_tickets_TicketRequestId,
+        __Marshaller_tickets_TicketRequestId);
+
+    static readonly grpc::Method<global::Tickets.EditTicketRequest, global::Tickets.TicketReply> __Method_EditTicket = new grpc::Method<global::Tickets.EditTicketRequest, global::Tickets.TicketReply>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "EditTicket",
+        __Marshaller_tickets_EditTicketRequest,
+        __Marshaller_tickets_TicketReply);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -62,7 +94,27 @@ namespace Tickets {
     [grpc::BindServiceMethod(typeof(Tickets), "BindService")]
     public abstract partial class TicketsBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Tickets.AddTicketReply> AddTicket(global::Tickets.AddTicketRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Tickets.TicketReply> GetTicket(global::Tickets.TicketRequestId request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Tickets.TicketsReply> GetAllTickets(global::Tickets.AllTicketsRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Tickets.TicketReply> AddTicket(global::Tickets.AddTicketRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Tickets.TicketRequestId> DeleteTicket(global::Tickets.TicketRequestId request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Tickets.TicketReply> EditTicket(global::Tickets.EditTicketRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -74,7 +126,11 @@ namespace Tickets {
     public static grpc::ServerServiceDefinition BindService(TicketsBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_AddTicket, serviceImpl.AddTicket).Build();
+          .AddMethod(__Method_GetTicket, serviceImpl.GetTicket)
+          .AddMethod(__Method_GetAllTickets, serviceImpl.GetAllTickets)
+          .AddMethod(__Method_AddTicket, serviceImpl.AddTicket)
+          .AddMethod(__Method_DeleteTicket, serviceImpl.DeleteTicket)
+          .AddMethod(__Method_EditTicket, serviceImpl.EditTicket).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -83,7 +139,11 @@ namespace Tickets {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, TicketsBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_AddTicket, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Tickets.AddTicketRequest, global::Tickets.AddTicketReply>(serviceImpl.AddTicket));
+      serviceBinder.AddMethod(__Method_GetTicket, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Tickets.TicketRequestId, global::Tickets.TicketReply>(serviceImpl.GetTicket));
+      serviceBinder.AddMethod(__Method_GetAllTickets, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Tickets.AllTicketsRequest, global::Tickets.TicketsReply>(serviceImpl.GetAllTickets));
+      serviceBinder.AddMethod(__Method_AddTicket, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Tickets.AddTicketRequest, global::Tickets.TicketReply>(serviceImpl.AddTicket));
+      serviceBinder.AddMethod(__Method_DeleteTicket, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Tickets.TicketRequestId, global::Tickets.TicketRequestId>(serviceImpl.DeleteTicket));
+      serviceBinder.AddMethod(__Method_EditTicket, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Tickets.EditTicketRequest, global::Tickets.TicketReply>(serviceImpl.EditTicket));
     }
 
   }

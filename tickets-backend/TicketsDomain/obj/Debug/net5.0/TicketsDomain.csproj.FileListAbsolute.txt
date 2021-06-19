@@ -2,6 +2,7 @@ C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\Ti
 C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\TicketsDomain\bin\Debug\net5.0\TicketsDomain.dll
 C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\TicketsDomain\bin\Debug\net5.0\ref\TicketsDomain.dll
 C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\TicketsDomain\bin\Debug\net5.0\TicketsDomain.pdb
+C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\TicketsDomain\obj\Debug\net5.0\TicketsDomain.csprojAssemblyReference.cache
 C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\TicketsDomain\obj\Debug\net5.0\TicketsDomain.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\TicketsDomain\obj\Debug\net5.0\TicketsDomain.AssemblyInfoInputs.cache
 C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\TicketsDomain\obj\Debug\net5.0\TicketsDomain.AssemblyInfo.cs
@@ -9,4 +10,3 @@ C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\Ti
 C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\TicketsDomain\obj\Debug\net5.0\TicketsDomain.dll
 C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\TicketsDomain\obj\Debug\net5.0\ref\TicketsDomain.dll
 C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\TicketsDomain\obj\Debug\net5.0\TicketsDomain.pdb
-C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\TicketsDomain\obj\Debug\net5.0\TicketsDomain.csprojAssemblyReference.cache

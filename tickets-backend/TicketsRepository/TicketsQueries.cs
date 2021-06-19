@@ -20,6 +20,34 @@ namespace TicketsRepository
 
             _tickets = database.GetCollection<TicketSchema>(settings.TicketsCollectionName);
         }
+
+        public async Task<List<TicketDTO>> FindAll(int page, int count)
+        {
+            var ticketsQuery = await _tickets.Find(ticket => true)
+                .Skip(page * count)
+                .Limit(count)
+                .ToListAsync();
+
+            var tickets = ticketsQuery.Select(ticket => MapTicketDTO(ticket)).ToList();
+
+            return tickets;
+        }
+
+        public async Task<TicketDTO> FindById(string ticketId)
+        {
+            var existingTicketQuery = await _tickets.FindAsync(ticket => ticket.Id.Equals(ticketId));
+            var existingTicket = existingTicketQuery.FirstOrDefault();
+
+            if (existingTicket is not null)
+            {
+                var ticket = MapTicketDTO(existingTicket);
+
+                return ticket;
+            }
+
+            return null;
+        }
+
         public async Task<TicketDTO> Insert(Ticket newTicket)
         {
             var ticket = new TicketSchema 
@@ -30,7 +58,48 @@ namespace TicketsRepository
                 Status = newTicket.Status
             };
             await _tickets.InsertOneAsync(ticket);
-            var savedTicket = new TicketDTO
+            var savedTicket = MapTicketDTO(ticket);
+
+            return savedTicket;
+        }
+
+        public async Task<string> Delete(string ticketId)
+        {
+            var existingTicketQuery = await _tickets.FindAsync(ticket => ticket.Id.Equals(ticketId));
+            var existingTicket = existingTicketQuery.FirstOrDefault();
+
+            if (existingTicket is not null)
+            {
+                await _tickets.DeleteOneAsync(ticket => ticket.Id.Equals(ticketId));
+
+                return ticketId;
+            }
+
+            return null;
+        }
+
+        public async Task<TicketDTO> Edit(Ticket newTicket)
+        {
+            var existingTicketQuery = await _tickets.FindAsync(ticket => ticket.Id.Equals(newTicket.Id));
+            var existingTicket = existingTicketQuery.FirstOrDefault();
+
+            if(existingTicket is not null)
+            {
+                existingTicket.UserName = newTicket.User;
+                existingTicket.Status = newTicket.Status;
+                existingTicket.UpdateDate = newTicket.UpdateDate;
+                await _tickets.ReplaceOneAsync(ticket => ticket.Id.Equals(ticket.Id), existingTicket);
+                var modifiedTicket = MapTicketDTO(existingTicket);
+
+                return modifiedTicket;
+            }
+
+            return null;
+        }
+
+        private TicketDTO MapTicketDTO(TicketSchema ticket)
+        {
+            return new TicketDTO
             {
                 Id = ticket.Id,
                 User = ticket.UserName,
@@ -38,8 +107,6 @@ namespace TicketsRepository
                 UpdateDate = ticket.UpdateDate,
                 Status = ticket.Status
             };
-
-            return savedTicket;
         }
     }
 }
