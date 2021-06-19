@@ -1,24 +1,23 @@
 import React, { useEffect } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { GreeterClient } from "./protoc/GreetServiceClientPb";
-import { HelloRequest } from "./protoc/greet_pb";
+import { TicketsClient } from "./protoc/TicketsServiceClientPb";
+import { TicketRequestId } from "./protoc/tickets_pb";
 
-var client = new GreeterClient("https://localhost:5000");
+var client = new TicketsClient("https://localhost:5000");
 
 function App() {
   useEffect(() => {
-    var request = new HelloRequest();
-    request.setName("World");
-    client.sayHello(request, {}, (err, response) => {
-      console.log(response.getMessage());
+    var request = new TicketRequestId();
+    request.setId("000000000");
+    client.getTicket(request, {}, (err, response) => {
+      console.log(err);
+      console.log(response.getId());
     });
   }, []);
 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
