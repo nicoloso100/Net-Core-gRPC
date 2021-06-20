@@ -2,8 +2,6 @@ syntax = "proto3";
  
 import "google/protobuf/timestamp.proto";
 
-option csharp_namespace = "Tickets";
-
 package tickets;
 
 service Tickets {

@@ -33,6 +33,14 @@ namespace Tickets
             RepositoriesLayerInjection(services);
 
             services.AddGrpc();
+
+            services.AddCors(o => o.AddPolicy("AllowAll", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader()
+                       .WithExposedHeaders("Grpc-Status", "Grpc-Message", "Grpc-Encoding", "Grpc-Accept-Encoding");
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,9 +53,13 @@ namespace Tickets
 
             app.UseRouting();
 
+            app.UseGrpcWeb(new GrpcWebOptions { DefaultEnabled = true });
+
+            app.UseCors();
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGrpcService<TicketsService>();
+                endpoints.MapGrpcService<TicketsService>().RequireCors("AllowAll");
 
                 endpoints.MapGet("/", async context =>
                 {

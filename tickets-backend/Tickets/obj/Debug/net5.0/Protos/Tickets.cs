@@ -33,16 +33,16 @@ namespace Tickets {
             "ZXBseRIKCgJpZBgBIAEoCRIMCgR1c2VyGAIgASgJEjAKDGNyZWF0aW9uRGF0",
             "ZRgDIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLgoKdXBkYXRl",
             "RGF0ZRgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASDgoGc3Rh",
-            "dHVzGAUgASgIIjUKDFRpY2tldHNSZXBseRIlCgd0aWNrZXRzGAEgAygLMhQu",
-            "dGlja2V0cy5UaWNrZXRSZXBseTLMAgoHVGlja2V0cxI7CglHZXRUaWNrZXQS",
-            "GC50aWNrZXRzLlRpY2tldFJlcXVlc3RJZBoULnRpY2tldHMuVGlja2V0UmVw",
-            "bHkSQgoNR2V0QWxsVGlja2V0cxIaLnRpY2tldHMuQWxsVGlja2V0c1JlcXVl",
-            "c3QaFS50aWNrZXRzLlRpY2tldHNSZXBseRI8CglBZGRUaWNrZXQSGS50aWNr",
-            "ZXRzLkFkZFRpY2tldFJlcXVlc3QaFC50aWNrZXRzLlRpY2tldFJlcGx5EkIK",
-            "DERlbGV0ZVRpY2tldBIYLnRpY2tldHMuVGlja2V0UmVxdWVzdElkGhgudGlj",
-            "a2V0cy5UaWNrZXRSZXF1ZXN0SWQSPgoKRWRpdFRpY2tldBIaLnRpY2tldHMu",
-            "RWRpdFRpY2tldFJlcXVlc3QaFC50aWNrZXRzLlRpY2tldFJlcGx5QgqqAgdU",
-            "aWNrZXRzYgZwcm90bzM="));
+            "dHVzGAUgASgIIkMKDFRpY2tldHNSZXBseRIMCgRyb3dzGAIgASgPEiUKB3Rp",
+            "Y2tldHMYASADKAsyFC50aWNrZXRzLlRpY2tldFJlcGx5MswCCgdUaWNrZXRz",
+            "EjsKCUdldFRpY2tldBIYLnRpY2tldHMuVGlja2V0UmVxdWVzdElkGhQudGlj",
+            "a2V0cy5UaWNrZXRSZXBseRJCCg1HZXRBbGxUaWNrZXRzEhoudGlja2V0cy5B",
+            "bGxUaWNrZXRzUmVxdWVzdBoVLnRpY2tldHMuVGlja2V0c1JlcGx5EjwKCUFk",
+            "ZFRpY2tldBIZLnRpY2tldHMuQWRkVGlja2V0UmVxdWVzdBoULnRpY2tldHMu",
+            "VGlja2V0UmVwbHkSQgoMRGVsZXRlVGlja2V0EhgudGlja2V0cy5UaWNrZXRS",
+            "ZXF1ZXN0SWQaGC50aWNrZXRzLlRpY2tldFJlcXVlc3RJZBI+CgpFZGl0VGlj",
+            "a2V0EhoudGlja2V0cy5FZGl0VGlja2V0UmVxdWVzdBoULnRpY2tldHMuVGlj",
+            "a2V0UmVwbHlCCqoCB1RpY2tldHNiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -51,7 +51,7 @@ namespace Tickets {
             new pbr::GeneratedClrTypeInfo(typeof(global::Tickets.AddTicketRequest), global::Tickets.AddTicketRequest.Parser, new[]{ "User", "Status" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Tickets.EditTicketRequest), global::Tickets.EditTicketRequest.Parser, new[]{ "Id", "User", "Status" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Tickets.TicketReply), global::Tickets.TicketReply.Parser, new[]{ "Id", "User", "CreationDate", "UpdateDate", "Status" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Tickets.TicketsReply), global::Tickets.TicketsReply.Parser, new[]{ "Tickets" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Tickets.TicketsReply), global::Tickets.TicketsReply.Parser, new[]{ "Rows", "Tickets" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1253,6 +1253,7 @@ namespace Tickets {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public TicketsReply(TicketsReply other) : this() {
+      rows_ = other.rows_;
       tickets_ = other.tickets_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -1260,6 +1261,17 @@ namespace Tickets {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public TicketsReply Clone() {
       return new TicketsReply(this);
+    }
+
+    /// <summary>Field number for the "rows" field.</summary>
+    public const int RowsFieldNumber = 2;
+    private int rows_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Rows {
+      get { return rows_; }
+      set {
+        rows_ = value;
+      }
     }
 
     /// <summary>Field number for the "tickets" field.</summary>
@@ -1285,6 +1297,7 @@ namespace Tickets {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (Rows != other.Rows) return false;
       if(!tickets_.Equals(other.tickets_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1292,6 +1305,7 @@ namespace Tickets {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (Rows != 0) hash ^= Rows.GetHashCode();
       hash ^= tickets_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1310,6 +1324,10 @@ namespace Tickets {
       output.WriteRawMessage(this);
     #else
       tickets_.WriteTo(output, _repeated_tickets_codec);
+      if (Rows != 0) {
+        output.WriteRawTag(21);
+        output.WriteSFixed32(Rows);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1320,6 +1338,10 @@ namespace Tickets {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       tickets_.WriteTo(ref output, _repeated_tickets_codec);
+      if (Rows != 0) {
+        output.WriteRawTag(21);
+        output.WriteSFixed32(Rows);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1329,6 +1351,9 @@ namespace Tickets {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (Rows != 0) {
+        size += 1 + 4;
+      }
       size += tickets_.CalculateSize(_repeated_tickets_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1340,6 +1365,9 @@ namespace Tickets {
     public void MergeFrom(TicketsReply other) {
       if (other == null) {
         return;
+      }
+      if (other.Rows != 0) {
+        Rows = other.Rows;
       }
       tickets_.Add(other.tickets_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -1360,6 +1388,10 @@ namespace Tickets {
             tickets_.AddEntriesFrom(input, _repeated_tickets_codec);
             break;
           }
+          case 21: {
+            Rows = input.ReadSFixed32();
+            break;
+          }
         }
       }
     #endif
@@ -1376,6 +1408,10 @@ namespace Tickets {
             break;
           case 10: {
             tickets_.AddEntriesFrom(ref input, _repeated_tickets_codec);
+            break;
+          }
+          case 21: {
+            Rows = input.ReadSFixed32();
             break;
           }
         }

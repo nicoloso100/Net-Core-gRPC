@@ -34,6 +34,7 @@
       "Tickets/1.0.0": {
         "dependencies": {
           "Grpc.AspNetCore": "2.34.0",
+          "Grpc.AspNetCore.Web": "2.38.0",
           "Grpc.Tools": "2.38.0",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.10.13",
           "TicketsDTOs": "1.0.0",
@@ -390,6 +391,17 @@
         },
         "compile": {
           "lib/net5.0/Grpc.AspNetCore.Server.ClientFactory.dll": {}
+        }
+      },
+      "Grpc.AspNetCore.Web/2.38.0": {
+        "runtime": {
+          "lib/net5.0/Grpc.AspNetCore.Web.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.38.0.0"
+          }
+        },
+        "compile": {
+          "lib/net5.0/Grpc.AspNetCore.Web.dll": {}
         }
       },
       "Grpc.Core.Api/2.34.0": {
@@ -2397,6 +2409,13 @@
       "sha512": "sha512-4NsZNtnKXt+u2KSczhU7eI+QX/XEDPnMxUtqpeMPNuI38ZEwB9HEG5W2KZQzT6vVLa8VR2GBuY0DDwWyP5hWlg==",
       "path": "grpc.aspnetcore.server.clientfactory/2.34.0",
       "hashPath": "grpc.aspnetcore.server.clientfactory.2.34.0.nupkg.sha512"
+    },
+    "Grpc.AspNetCore.Web/2.38.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wTC5plW4wWupcwddH8/KexZs3T6rAOXVUU9NgWaHDC+XKWX3W0v9SH9yEJvvK9E99pQAJk+f440QVmF3R/CF7g==",
+      "path": "grpc.aspnetcore.web/2.38.0",
+      "hashPath": "grpc.aspnetcore.web.2.38.0.nupkg.sha512"
     },
     "Grpc.Core.Api/2.34.0": {
       "type": "package",

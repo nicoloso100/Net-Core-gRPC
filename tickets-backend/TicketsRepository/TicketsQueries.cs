@@ -23,8 +23,9 @@ namespace TicketsRepository
 
         public async Task<List<TicketDTO>> FindAll(int page, int count)
         {
+            var skip = (page - 1) * count;
             var ticketsQuery = await _tickets.Find(ticket => true)
-                .Skip(page * count)
+                .Skip(skip)
                 .Limit(count)
                 .ToListAsync();
 
@@ -88,7 +89,7 @@ namespace TicketsRepository
                 existingTicket.UserName = newTicket.User;
                 existingTicket.Status = newTicket.Status;
                 existingTicket.UpdateDate = newTicket.UpdateDate;
-                await _tickets.ReplaceOneAsync(ticket => ticket.Id.Equals(ticket.Id), existingTicket);
+                await _tickets.ReplaceOneAsync(ticket => ticket.Id.Equals(newTicket.Id), existingTicket);
                 var modifiedTicket = MapTicketDTO(existingTicket);
 
                 return modifiedTicket;

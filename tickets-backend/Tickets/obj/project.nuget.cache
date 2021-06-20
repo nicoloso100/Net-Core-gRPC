@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "n5W36bPeQAqXw3+ONdDA5p5aHSlDX79c/Vd2UqTi2s8z2sf3s+/tR3DKSuryyGMNXk1Q7VmeTd1xeT5HZ72X4w==",
+  "dgSpecHash": "9aWR1VWoLQYYDurqiP+rnDHjMkdivHFE5YJt7ieCdQ+ygKItfjsjbyAwgQ8Sw3LxhjesmVBBdcBHNcQRMrP7pQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\nicoloso100\\Downloads\\Pruebas tecnicas\\Net-Core-gRPC\\tickets-backend\\Tickets\\Tickets.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\nicoloso100\\.nuget\\packages\\grpc.aspnetcore\\2.34.0\\grpc.aspnetcore.2.34.0.nupkg.sha512",
     "C:\\Users\\nicoloso100\\.nuget\\packages\\grpc.aspnetcore.server\\2.34.0\\grpc.aspnetcore.server.2.34.0.nupkg.sha512",
     "C:\\Users\\nicoloso100\\.nuget\\packages\\grpc.aspnetcore.server.clientfactory\\2.34.0\\grpc.aspnetcore.server.clientfactory.2.34.0.nupkg.sha512",
+    "C:\\Users\\nicoloso100\\.nuget\\packages\\grpc.aspnetcore.web\\2.38.0\\grpc.aspnetcore.web.2.38.0.nupkg.sha512",
     "C:\\Users\\nicoloso100\\.nuget\\packages\\grpc.core.api\\2.34.0\\grpc.core.api.2.34.0.nupkg.sha512",
     "C:\\Users\\nicoloso100\\.nuget\\packages\\grpc.net.client\\2.34.0\\grpc.net.client.2.34.0.nupkg.sha512",
     "C:\\Users\\nicoloso100\\.nuget\\packages\\grpc.net.clientfactory\\2.34.0\\grpc.net.clientfactory.2.34.0.nupkg.sha512",
