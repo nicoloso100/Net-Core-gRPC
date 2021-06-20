@@ -1,6 +1,5 @@
 import React, { useCallback } from "react";
 import { Toaster } from "react-hot-toast";
-import "./App.css";
 import CreateTicket from "./pages/CreateTicket";
 import TicketsTable from "./pages/TicketsTable";
 import toast from "react-hot-toast";

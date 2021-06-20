@@ -41,6 +41,7 @@ C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\Ti
 C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\Tickets\bin\Debug\net5.0\Google.Protobuf.dll
 C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\Tickets\bin\Debug\net5.0\Grpc.AspNetCore.Server.dll
 C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\Tickets\bin\Debug\net5.0\Grpc.AspNetCore.Server.ClientFactory.dll
+C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\Tickets\bin\Debug\net5.0\Grpc.AspNetCore.Web.dll
 C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\Tickets\bin\Debug\net5.0\Grpc.Core.Api.dll
 C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\Tickets\bin\Debug\net5.0\Grpc.Net.Client.dll
 C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\Tickets\bin\Debug\net5.0\Grpc.Net.ClientFactory.dll
@@ -79,4 +80,3 @@ C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\Ti
 C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\Tickets\obj\Debug\net5.0\ref\Tickets.dll
 C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\Tickets\obj\Debug\net5.0\Tickets.pdb
 C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\Tickets\obj\Debug\net5.0\Tickets.genruntimeconfig.cache
-C:\Users\nicoloso100\Downloads\Pruebas tecnicas\Net-Core-gRPC\tickets-backend\Tickets\bin\Debug\net5.0\Grpc.AspNetCore.Web.dll
