@@ -3,8 +3,9 @@ import { SectionContainer } from "./styles";
 import { TicketsClient } from "../protoc/TicketsServiceClientPb";
 import { AddTicketRequest } from "../protoc/tickets_pb";
 import toast from "react-hot-toast";
+import { APIURL } from "../constants";
 
-var client = new TicketsClient("https://localhost:5000");
+var client = new TicketsClient(APIURL);
 
 interface ICreateTicketProps {
   onCreated: () => void;

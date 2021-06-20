@@ -1,10 +1,11 @@
 import * as React from "react";
 import toast from "react-hot-toast";
+import { APIURL } from "../constants";
 import { TicketsClient } from "../protoc/TicketsServiceClientPb";
 import { EditTicketRequest } from "../protoc/tickets_pb";
 import { EditTicketComponentCont } from "./styles";
 
-var client = new TicketsClient("https://localhost:5000");
+var client = new TicketsClient(APIURL);
 
 interface EditTicketComponentProps {
   ticket: ITicket;

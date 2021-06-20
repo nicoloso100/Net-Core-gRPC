@@ -6,8 +6,9 @@ import toast from "react-hot-toast";
 import { TicketsClient } from "./protoc/TicketsServiceClientPb";
 import { AllTicketsRequest, TicketRequestId } from "./protoc/tickets_pb";
 import { Divider, TitleContainer } from "./styles";
+import { APIURL } from "./constants";
 
-var client = new TicketsClient("https://localhost:5000");
+var client = new TicketsClient(APIURL);
 
 function App() {
   const [data, setData] = React.useState<ITicket[]>([]);
