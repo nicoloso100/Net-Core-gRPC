@@ -130,6 +130,9 @@ export namespace TicketReply {
 }
 
 export class TicketsReply extends jspb.Message {
+  getRows(): number;
+  setRows(value: number): TicketsReply;
+
   getTicketsList(): Array<TicketReply>;
   setTicketsList(value: Array<TicketReply>): TicketsReply;
   clearTicketsList(): TicketsReply;
@@ -145,6 +148,7 @@ export class TicketsReply extends jspb.Message {
 
 export namespace TicketsReply {
   export type AsObject = {
+    rows: number,
     ticketsList: Array<TicketReply.AsObject>,
   }
 }

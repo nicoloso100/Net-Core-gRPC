@@ -43,5 +43,6 @@ message TicketReply {
 }
 
 message TicketsReply {
+  sfixed32 rows = 2;
   repeated TicketReply tickets = 1;
 }

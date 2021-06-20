@@ -1120,6 +1120,7 @@ proto.tickets.TicketsReply.prototype.toObject = function(opt_includeInstance) {
  */
 proto.tickets.TicketsReply.toObject = function(includeInstance, msg) {
   var f, obj = {
+    rows: jspb.Message.getFieldWithDefault(msg, 2, 0),
     ticketsList: jspb.Message.toObjectList(msg.getTicketsList(),
     proto.tickets.TicketReply.toObject, includeInstance)
   };
@@ -1158,6 +1159,10 @@ proto.tickets.TicketsReply.deserializeBinaryFromReader = function(msg, reader) {
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 2:
+      var value = /** @type {number} */ (reader.readSfixed32());
+      msg.setRows(value);
+      break;
     case 1:
       var value = new proto.tickets.TicketReply;
       reader.readMessage(value,proto.tickets.TicketReply.deserializeBinaryFromReader);
@@ -1192,6 +1197,13 @@ proto.tickets.TicketsReply.prototype.serializeBinary = function() {
  */
 proto.tickets.TicketsReply.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getRows();
+  if (f !== 0) {
+    writer.writeSfixed32(
+      2,
+      f
+    );
+  }
   f = message.getTicketsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
@@ -1200,6 +1212,24 @@ proto.tickets.TicketsReply.serializeBinaryToWriter = function(message, writer) {
       proto.tickets.TicketReply.serializeBinaryToWriter
     );
   }
+};
+
+
+/**
+ * optional sfixed32 rows = 2;
+ * @return {number}
+ */
+proto.tickets.TicketsReply.prototype.getRows = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.tickets.TicketsReply} returns this
+ */
+proto.tickets.TicketsReply.prototype.setRows = function(value) {
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 

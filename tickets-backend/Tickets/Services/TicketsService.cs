@@ -33,8 +33,8 @@ namespace Tickets.Services
                 {
                     Id = result.Id,
                     User = result.User,
-                    CreationDate = Timestamp.FromDateTime(result.CreationDate),
-                    UpdateDate = Timestamp.FromDateTime(result.UpdateDate),
+                    CreationDate = Timestamp.FromDateTime(result.CreationDate.ToUniversalTime()),
+                    UpdateDate = Timestamp.FromDateTime(result.UpdateDate.ToUniversalTime()),
                     Status = result.Status
                 };
 
@@ -42,12 +42,8 @@ namespace Tickets.Services
             }
             catch (Exception ex)
             {
-                var metadata = new Metadata
-                {
-                    { "Details", ex.Message }
-                };
                 _logger.LogError(ex.Message);
-                throw new RpcException(new Status(StatusCode.Internal, "An error ocurred while getting the ticket information"), metadata);
+                throw new RpcException(new Status(StatusCode.Internal, $"An error ocurred while getting the ticket information: {ex.Message}"));
             }
         }
 
@@ -61,21 +57,18 @@ namespace Tickets.Services
                 {
                     Id = ticket.Id,
                     User = ticket.User,
-                    CreationDate = Timestamp.FromDateTime(ticket.CreationDate),
-                    UpdateDate = Timestamp.FromDateTime(ticket.UpdateDate),
+                    CreationDate = Timestamp.FromDateTime(ticket.CreationDate.ToUniversalTime()),
+                    UpdateDate = Timestamp.FromDateTime(ticket.UpdateDate.ToUniversalTime()),
                     Status = ticket.Status
                 }));
+                reply.Rows = result.Count;
 
                 return reply;
             }
             catch (Exception ex)
             {
-                var metadata = new Metadata
-                {
-                    { "Details", ex.Message }
-                };
                 _logger.LogError(ex.Message);
-                throw new RpcException(new Status(StatusCode.Internal, "An error ocurred while getting the ticket information"), metadata);
+                throw new RpcException(new Status(StatusCode.Internal, $"An error ocurred while getting the ticket information: {ex.Message}"));
             }
         }
 
@@ -93,8 +86,8 @@ namespace Tickets.Services
                 {
                     Id = result.Id,
                     User = result.User,
-                    CreationDate = Timestamp.FromDateTime(result.CreationDate),
-                    UpdateDate = Timestamp.FromDateTime(result.UpdateDate),
+                    CreationDate = Timestamp.FromDateTime(result.CreationDate.ToUniversalTime()),
+                    UpdateDate = Timestamp.FromDateTime(result.UpdateDate.ToUniversalTime()),
                     Status = result.Status
                 };
 
@@ -102,12 +95,8 @@ namespace Tickets.Services
             }
             catch (Exception ex)
             {
-                var metadata = new Metadata
-                {
-                    { "Details", ex.Message }
-                };
                 _logger.LogError(ex.Message);
-                throw new RpcException(new Status(StatusCode.Internal, "An error ocurred while creating the ticket"), metadata);
+                throw new RpcException(new Status(StatusCode.Internal, $"An error ocurred while creating the ticket: {ex.Message}"));
             }
         }
 
@@ -125,12 +114,8 @@ namespace Tickets.Services
             }
             catch (Exception ex)
             {
-                var metadata = new Metadata
-                {
-                    { "Details", ex.Message }
-                };
                 _logger.LogError(ex.Message);
-                throw new RpcException(new Status(StatusCode.Internal, "An error ocurred while deleting the ticket"), metadata);
+                throw new RpcException(new Status(StatusCode.Internal, $"An error ocurred while deleting the ticket: {ex.Message}"));
             }
         }
 
@@ -149,8 +134,8 @@ namespace Tickets.Services
                 {
                     Id = result.Id,
                     User = result.User,
-                    CreationDate = Timestamp.FromDateTime(result.CreationDate),
-                    UpdateDate = Timestamp.FromDateTime(result.UpdateDate),
+                    CreationDate = Timestamp.FromDateTime(result.CreationDate.ToUniversalTime()),
+                    UpdateDate = Timestamp.FromDateTime(result.UpdateDate.ToUniversalTime()),
                     Status = result.Status
                 };
 
@@ -158,12 +143,8 @@ namespace Tickets.Services
             }
             catch (Exception ex)
             {
-                var metadata = new Metadata
-                {
-                    { "Details", ex.Message }
-                };
                 _logger.LogError(ex.Message);
-                throw new RpcException(new Status(StatusCode.Internal, "An error ocurred while modifying the ticket"), metadata);
+                throw new RpcException(new Status(StatusCode.Internal, $"An error ocurred while modifying the ticket: {ex.Message}"));
             }
         }
     }
