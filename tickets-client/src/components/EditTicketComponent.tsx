@@ -57,8 +57,8 @@ const EditTicketComponent: React.FC<EditTicketComponentProps> = ({
       <label>
         Status:
         <select value={status} onChange={handleStatusChange}>
-          <option value="0">True</option>
-          <option value="1">False</option>
+          <option value="0">Open</option>
+          <option value="1">Closed</option>
         </select>
       </label>
       <button disabled={loading} onClick={handleCreateButton}>

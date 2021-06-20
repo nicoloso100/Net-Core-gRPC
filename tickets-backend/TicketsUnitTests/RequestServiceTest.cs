@@ -1,9 +1,5 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TicketsRepository;
 using TicketsServices;
 
@@ -35,6 +31,34 @@ namespace TicketsUnitTests
             Assert.That(result.User, Is.EqualTo("Test"));
             Assert.That(result.Status, Is.EqualTo(true));
             Assert.That(result.Id, Is.EqualTo("60cd6a7eee1d529c390f66f8"));
+        }
+
+        [Test]
+        public void CountTickets_TwoTickets_ReturnTwo()
+        {
+            var result = _requestService.CountTicketsAmount().Result;
+            Assert.That(result, Is.EqualTo(2));
+        }
+
+        [Test]
+        public void TicketsPagination_PageOneRowsTwo_ReturnTwoElements()
+        {
+            var result = _requestService.FindAllTickets(page: 1, count: 2).Result;
+            Assert.That(result.Count, Is.EqualTo(2));
+        }
+
+        [Test]
+        public void TicketsPagination_PageTwoRowsOne_ReturnTwoElements()
+        {
+            var result = _requestService.FindAllTickets(page: 2, count: 1).Result;
+            Assert.That(result.Count, Is.EqualTo(1));
+        }
+
+        [Test]
+        public void TicketsPagination_PageOverflow_ReturnZero()
+        {
+            var result = _requestService.FindAllTickets(page: 10, count: 1).Result;
+            Assert.That(result.Count, Is.EqualTo(0));
         }
     }
 }

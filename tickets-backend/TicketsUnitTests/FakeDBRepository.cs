@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TicketsDomain;
 using TicketsDTOs;
@@ -53,11 +52,6 @@ namespace TicketsUnitTests
             }
         }
 
-        public Task<List<TicketDTO>> FindAll(int page, int count)
-        {
-            throw new NotImplementedException();
-        }
-
         public Task<TicketDTO> FindById(string ticketId)
         {
             if (!ticketId.Equals("60cd6a7eee1d529c390f66f8"))
@@ -75,6 +69,60 @@ namespace TicketsUnitTests
                     Status = true
                 });
             }
+        }
+
+        public Task<List<TicketDTO>> FindAll(int page, int count)
+        {
+            var skip = (page - 1) * count;
+            var list = new List<TicketDTO>();
+            list.Add(new TicketDTO
+            {
+                Id = "60cd6a7eee1d529c390f66f8",
+                User = "Test1",
+                CreationDate = DateTime.Now,
+                UpdateDate = DateTime.Now,
+                Status = true
+            });
+            list.Add(new TicketDTO
+            {
+                Id = "60cfa4c4ee517219ed26a908",
+                User = "Test2",
+                CreationDate = DateTime.Now,
+                UpdateDate = DateTime.Now,
+                Status = true
+            });
+            list.Add(new TicketDTO
+            {
+                Id = "60cfa4bfee517219ed26a904",
+                User = "Test3",
+                CreationDate = DateTime.Now,
+                UpdateDate = DateTime.Now,
+                Status = true
+            });
+            var paginated = list.Skip(skip).Take(count).ToList();
+            return Task.FromResult(paginated);
+        }
+
+        public Task<int> TotalAmount()
+        {
+            var list = new List<TicketDTO>();
+            list.Add(new TicketDTO
+            {
+                Id = "60cd6a7eee1d529c390f66f8",
+                User = "Test1",
+                CreationDate = DateTime.Now,
+                UpdateDate = DateTime.Now,
+                Status = true
+            });
+            list.Add(new TicketDTO
+            {
+                Id = "60cfa4c4ee517219ed26a908",
+                User = "Test2",
+                CreationDate = DateTime.Now,
+                UpdateDate = DateTime.Now,
+                Status = true
+            });
+            return Task.FromResult(list.Count);
         }
     }
 }

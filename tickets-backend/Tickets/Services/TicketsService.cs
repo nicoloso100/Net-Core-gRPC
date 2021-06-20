@@ -1,9 +1,7 @@
-﻿using Google.Protobuf.Collections;
-using Google.Protobuf.WellKnownTypes;
+﻿using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TicketsDTOs;
@@ -51,9 +49,10 @@ namespace Tickets.Services
         {
             try
             {
-                var result = await _requestService.FindAllTickets(page: request.Page, count: request.Count);
+                var tickets = await _requestService.FindAllTickets(page: request.Page, count: request.Count);
+                var ticketsAmount = await _requestService.CountTicketsAmount();
                 var reply = new TicketsReply();
-                reply.Tickets.AddRange(result.Select(ticket => new TicketReply
+                reply.Tickets.AddRange(tickets.Select(ticket => new TicketReply
                 {
                     Id = ticket.Id,
                     User = ticket.User,
@@ -61,7 +60,7 @@ namespace Tickets.Services
                     UpdateDate = Timestamp.FromDateTime(ticket.UpdateDate.ToUniversalTime()),
                     Status = ticket.Status
                 }));
-                reply.Rows = result.Count;
+                reply.Rows = ticketsAmount;
 
                 return reply;
             }
