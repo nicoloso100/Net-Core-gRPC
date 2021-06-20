@@ -3,3 +3,15 @@
 ################################################################################
 
 /tickets-backend/Tickets/obj
+/tickets-backend/TicketsUnitTests/obj
+/tickets-backend/TicketsUnitTests/bin/Debug/net5.0
+/tickets-backend/TicketsServices/obj
+/tickets-backend/TicketsServices/bin/Debug/net5.0
+/tickets-backend/TicketsRepository/obj
+/tickets-backend/TicketsRepository/bin/Debug/net5.0
+/tickets-backend/TicketsDTOs/obj
+/tickets-backend/TicketsDTOs/bin/Debug/net5.0
+/tickets-backend/TicketsDomain/obj
+/tickets-backend/TicketsDomain/bin/Debug/net5.0
+/tickets-backend/Tickets/bin/Debug/net5.0
+/tickets-backend/Tickets/.vs/Tickets/v16
