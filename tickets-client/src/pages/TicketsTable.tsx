@@ -2,6 +2,7 @@ import * as React from "react";
 import DataTable from "react-data-table-component";
 import EditTicketComponent from "../components/EditTicketComponent";
 import FilterComponent from "../components/FilterComponent";
+import { SectionContainer } from "./styles";
 
 interface ITicketsTableProps {
   data: ITicket[];
@@ -48,22 +49,26 @@ const TicketsTable: React.FC<ITicketsTableProps> = ({
         name: "Creation Date",
         selector: "creationDate",
         sortable: true,
-        cell: (row: ITicket) => <div>{row.creationDate.toDateString()}</div>,
+        cell: (row: ITicket) => (
+          <div>{`${row.creationDate.toDateString()} ${row.creationDate.toLocaleTimeString()}`}</div>
+        ),
       },
       {
         name: "Update Date",
         selector: "updateDate",
         sortable: true,
-        cell: (row: ITicket) => <div>{row.updateDate.toDateString()}</div>,
+        cell: (row: ITicket) => (
+          <div>{`${row.updateDate.toDateString()} ${row.updateDate.toLocaleTimeString()}`}</div>
+        ),
       },
       {
         name: "Status",
         selector: "status",
         sortable: true,
-        cell: (row: ITicket) => <div>{row.status ? "Active" : "Inactive"}</div>,
+        cell: (row: ITicket) => <div>{row.status ? "Open" : "Closed"}</div>,
       },
       {
-        name: "Status",
+        name: "Actions",
         selector: "status",
         sortable: true,
         cell: (row: ITicket) => (
@@ -77,21 +82,24 @@ const TicketsTable: React.FC<ITicketsTableProps> = ({
   );
 
   return (
-    <DataTable
-      columns={columns}
-      data={data}
-      progressPending={loading}
-      pagination
-      paginationServer
-      paginationTotalRows={totalRows}
-      onChangeRowsPerPage={handlePerRowsChange}
-      onChangePage={handlePageChange}
-      expandableRows
-      expandableRowsComponent={<ExpandableComponent />}
-      subHeader
-      subHeaderComponent={subHeaderComponentMemo}
-      persistTableHead
-    />
+    <SectionContainer>
+      <DataTable
+        columns={columns}
+        data={data}
+        progressPending={loading}
+        pagination
+        paginationServer
+        paginationTotalRows={totalRows}
+        onChangeRowsPerPage={handlePerRowsChange}
+        onChangePage={handlePageChange}
+        expandableRows
+        expandableRowsComponent={<ExpandableComponent />}
+        subHeader
+        subHeaderComponent={subHeaderComponentMemo}
+        persistTableHead
+        noHeader
+      />
+    </SectionContainer>
   );
 };
 

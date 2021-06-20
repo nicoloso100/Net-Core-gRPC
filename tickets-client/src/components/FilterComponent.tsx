@@ -1,4 +1,5 @@
 import * as React from "react";
+import { FilterButtonsCont } from "./styles";
 
 interface IFilterComponentProps {
   onSearch: (text: string) => void;
@@ -26,12 +27,14 @@ const FilterComponent: React.FC<IFilterComponentProps> = ({ onSearch }) => {
         value={text}
         onChange={(event) => setText(event.target.value)}
       />
-      <button type="button" onClick={handleSearch}>
-        Search
-      </button>
-      <button type="button" onClick={handleClear}>
-        X
-      </button>
+      <FilterButtonsCont>
+        <button type="button" onClick={handleSearch}>
+          Search
+        </button>
+        <button type="button" onClick={handleClear}>
+          X
+        </button>
+      </FilterButtonsCont>
     </>
   );
 };

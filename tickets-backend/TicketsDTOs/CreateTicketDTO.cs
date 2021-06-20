@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TicketsDTOs
+﻿namespace TicketsDTOs
 {
     public class CreateTicketDTO
     {

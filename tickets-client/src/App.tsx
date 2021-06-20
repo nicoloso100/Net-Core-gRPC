@@ -5,6 +5,7 @@ import TicketsTable from "./pages/TicketsTable";
 import toast from "react-hot-toast";
 import { TicketsClient } from "./protoc/TicketsServiceClientPb";
 import { AllTicketsRequest, TicketRequestId } from "./protoc/tickets_pb";
+import { Divider, TitleContainer } from "./styles";
 
 var client = new TicketsClient("https://localhost:5000");
 
@@ -132,8 +133,11 @@ function App() {
     <div className="App">
       <Toaster />
       <div>
-        <h1>Tickets Client For Testing gRPC API</h1>
+        <TitleContainer>
+          <h1>Tickets Client For Testing gRPC API</h1>
+        </TitleContainer>
         <CreateTicket onCreated={handleOnCreatedTicket} />
+        <Divider />
         <TicketsTable
           data={data}
           loading={loading}

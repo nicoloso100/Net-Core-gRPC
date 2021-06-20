@@ -15,7 +15,7 @@ namespace TicketsServices
         }
         public async Task<TicketDTO> CreateTicket(CreateTicketDTO newTicket)
         {
-            if(newTicket.User is null)
+            if (newTicket.User is null)
             {
                 throw new Exception("You must enter a user name.");
             }
@@ -38,13 +38,13 @@ namespace TicketsServices
 
         public async Task<TicketDTO> EditTicket(EditTicketDTO modifiedTicket)
         {
-            if(modifiedTicket.User is null || modifiedTicket.Id is null)
+            if (modifiedTicket.User is null || modifiedTicket.Id is null)
             {
                 throw new Exception("You must enter a user name and ticket id.");
             }
             var ticket = new Ticket(user: modifiedTicket.User, status: modifiedTicket.Status, id: modifiedTicket.Id);
             var resultTicket = await _ticketsQueries.Edit(ticket);
-            if(resultTicket is null)
+            if (resultTicket is null)
             {
                 throw new Exception("The specified ticket was not found.");
             }

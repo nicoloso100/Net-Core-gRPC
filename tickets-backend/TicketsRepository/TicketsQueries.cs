@@ -1,8 +1,6 @@
 ﻿using MongoDB.Driver;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TicketsDomain;
 using TicketsDTOs;
@@ -51,8 +49,8 @@ namespace TicketsRepository
 
         public async Task<TicketDTO> Insert(Ticket newTicket)
         {
-            var ticket = new TicketSchema 
-            { 
+            var ticket = new TicketSchema
+            {
                 UserName = newTicket.User,
                 CreationDate = newTicket.CreationDate,
                 UpdateDate = newTicket.UpdateDate,
@@ -84,7 +82,7 @@ namespace TicketsRepository
             var existingTicketQuery = await _tickets.FindAsync(ticket => ticket.Id.Equals(newTicket.Id));
             var existingTicket = existingTicketQuery.FirstOrDefault();
 
-            if(existingTicket is not null)
+            if (existingTicket is not null)
             {
                 existingTicket.UserName = newTicket.User;
                 existingTicket.Status = newTicket.Status;
@@ -96,6 +94,14 @@ namespace TicketsRepository
             }
 
             return null;
+        }
+
+        public async Task<int> TotalAmount()
+        {
+            var ticketsQuery = await _tickets.FindAsync(ticket => true);
+            var amount = ticketsQuery.ToEnumerable().Count();
+
+            return amount;
         }
 
         private TicketDTO MapTicketDTO(TicketSchema ticket)

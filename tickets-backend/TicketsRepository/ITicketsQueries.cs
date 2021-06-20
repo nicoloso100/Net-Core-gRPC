@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using TicketsDomain;
 using TicketsDTOs;
@@ -15,5 +12,6 @@ namespace TicketsRepository
         Task<TicketDTO> Insert(Ticket newTicket);
         Task<string> Delete(string ticketId);
         Task<TicketDTO> Edit(Ticket ticket);
+        Task<int> TotalAmount();
     }
 }
