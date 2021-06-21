@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  font-family: "Libre Franklin", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+select {
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid #575757;
+  margin: 5px;
+  transition-duration: 0.2s;
+  color: #303030;
+}
+
+button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition-duration: 0.2s;
+  border: 1px solid #4d88a9;
+  background-color: #4d88a9;
+  color: white;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+  box-shadow: 0px 0px 7px -1px #a5a5a5;
+}
+
+button:focus {
+  background-color: #afafaf;
+}

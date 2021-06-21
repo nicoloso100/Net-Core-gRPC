@@ -1,0 +1,48 @@
+syntax = "proto3";
+ 
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "Tickets";
+
+package tickets;
+
+service Tickets {
+  rpc GetTicket (TicketRequestId) returns (TicketReply );
+  rpc GetAllTickets (AllTicketsRequest) returns (TicketsReply );
+  rpc AddTicket (AddTicketRequest) returns (TicketReply);
+  rpc DeleteTicket (TicketRequestId) returns (TicketRequestId );
+  rpc EditTicket (EditTicketRequest) returns (TicketReply );
+}
+
+message TicketRequestId {
+  string id = 1;
+}
+
+message AllTicketsRequest {
+  sfixed32 page = 1;
+  sfixed32 count = 2;
+}
+
+message AddTicketRequest {
+  string user = 1;
+  bool status = 2;
+}
+
+message EditTicketRequest {
+  string id = 1;
+  string user = 2;
+  bool status = 3;
+}
+
+message TicketReply {
+  string id = 1;
+  string user = 2;
+  google.protobuf.Timestamp creationDate = 3;
+  google.protobuf.Timestamp updateDate = 4;
+  bool status = 5;
+}
+
+message TicketsReply {
+  sfixed32 rows = 2;
+  repeated TicketReply tickets = 1;
+}
